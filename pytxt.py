@@ -22,24 +22,41 @@ def lowAll():
     result = ' '.join(result)
     print result
 
-#  this will capitalize the specified letter (via numerical position) in each
+#  this will capitalize the specified letter (via numerical position or
+#  specific letter via char) in each
 #  word in buffy and print it out
 
 
 def capLetter(n):
-    n = n - 1
-    m = n + 1
-    result = [x[:n] + x[n].upper() + x[m:] for x in buffy if x != '' and len(x) > m]
-    result = ' '.join(result)
-    print result
+        if isinstance(n, (int, long)):
+            n = n - 1
+            m = n + 1
+            result = [x[:n] + x[n].upper() + x[m:] for x in buffy if x != '' and len(x) > m]
+            result = ' '.join(result)
+            print result
+        else:
+            n = n.upper()
+            result = [x.upper().replace(n.lower(), n.upper()) for x in buffy if x != '']
+            result = ' '.join(result)
+            print result
 
-#  this will lowercase the specified letter (via numerical position) in each
+
+#  this will lowercase the specified letter (via numerical position or specific
+#  letter via char) in each
 #  work in buffy and print it out
 
 
 def lowLetter(n):
-    n = n - 1
-    m = n + 1
-    result = [x[:n] + x[n].lower() + x[m:] for x in buffy if x != '' and len(x) > m]
-    result = ' '.join(result)
-    print result
+    if isinstance(n, (int, long)):
+        n = n - 1
+        m = n + 1
+        result = [x[:n] + x[n].lower() + x[m:] for x in buffy if x != '' and len(x) > m]
+        result = ' '.join(result)
+        print result
+    else:
+        result = [x.replace(n.upper(), n.lower()) for x in buffy if x != '']
+        result = ' '.join(result)
+        print result
+
+
+lowLetter('N')
