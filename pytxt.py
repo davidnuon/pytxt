@@ -1,8 +1,10 @@
 import sys
 
 #  storing stdin in the var buffy and then spliting it by spaces
+
 buffy = sys.stdin.read()
 buffy = buffy.split(' ')
+
 
 #  this function will capitalize everything in buffy join it together. And print
 #  it out
@@ -13,6 +15,7 @@ def capAll():
     result = ' '.join(result)
     print result
 
+
 #  this function will lower everything in buffy and then join it together and
 #  print the result
 
@@ -21,6 +24,7 @@ def lowAll():
     result = [x.lower() for x in buffy if x != '']
     result = ' '.join(result)
     print result
+
 
 #  this will capitalize the specified letter (via numerical position or
 #  specific letter via char) in each
@@ -56,6 +60,7 @@ def lowLetter(n):
         result = [x.replace(n.upper(), n.lower()) for x in buffy if x != '']
         result = ' '.join(result)
         print result
+
 
 #  could parse text and grab any file paths in the text
 
