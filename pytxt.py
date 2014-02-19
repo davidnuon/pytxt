@@ -57,4 +57,8 @@ def lowLetter(n):
         result = ' '.join(result)
         print result
 
+#  could parse text and grab any file paths in the text
 
+
+def findPaths():
+    pass
