@@ -58,4 +58,3 @@ def lowLetter(n):
         print result
 
 
-lowLetter('N')
