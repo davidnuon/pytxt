@@ -35,7 +35,6 @@ def capLetter(n):
             result = ' '.join(result)
             print result
         else:
-            n = n.upper()
             result = [x.upper().replace(n.lower(), n.upper()) for x in buffy if x != '']
             result = ' '.join(result)
             print result
