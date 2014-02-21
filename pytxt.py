@@ -1,75 +1,20 @@
-import sys
+""" Pytxt.
 
-#  storing stdin in the var buffy and then spliting it by spaces
+Usage:
+    pytxt.py capital (<Letter> | <position>)
+    pytxt.py lower (<Letter> | <position>)
+    pytxt.py findPaths
+    pytxt.py (-h | --help)
+    pytxt.py --version
 
-buffy = sys.stdin.read()
-buffy = buffy.split(' ')
+Options:
+    -h --help   Show this screen.
+    --version   Show version.
 
+"""
 
-#  this function will capitalize everything in buffy join it together. And print
-#  it out
+from docopt import docopt
 
-
-def capAll():
-    result = [x.upper() for x in buffy if x != '']
-    result = ' '.join(result)
-    print result
-
-
-#  this function will lower everything in buffy and then join it together and
-#  print the result
-
-
-def lowAll():
-    result = [x.lower() for x in buffy if x != '']
-    result = ' '.join(result)
-    print result
-
-
-#  this will capitalize the specified letter (via numerical position or
-#  specific letter via char) in each
-#  word in buffy and print it out
-
-
-def capLetter(n):
-        if isinstance(n, (int, long)):
-            n = n - 1
-            m = n + 1
-            result = [x[:n] + x[n].upper() + x[m:] for x in buffy if x != '' and len(x) > m]
-            result = ' '.join(result)
-            print result
-        else:
-            result = [x.upper().replace(n.lower(), n.upper()) for x in buffy if x != '']
-            result = ' '.join(result)
-            print result
-
-
-#  this will lowercase the specified letter (via numerical position or specific
-#  letter via char) in each
-#  work in buffy and print it out
-
-
-def lowLetter(n):
-    if isinstance(n, (int, long)):
-        n = n - 1
-        m = n + 1
-        result = [x[:n] + x[n].lower() + x[m:] for x in buffy if x != '' and len(x) > m]
-        result = ' '.join(result)
-        print result
-    else:
-        result = [x.replace(n.upper(), n.lower()) for x in buffy if x != '']
-        result = ' '.join(result)
-        print result
-
-
-#  could parse text and grab any file paths in the text
-
-
-def findPaths():
-    paths = [x for x in buffy if x[0] == '/']
-    paths = ' '.join(paths)
-    print paths
-<<<<<<< HEAD
-=======
-findPaths()
->>>>>>> c5062326407f858a8b6370a359f610309cd63240
+if __name__ == '__main__':
+    arguments = docopt(__doc__, version='Pytxt 0.0.1')
+    print(arguments)
