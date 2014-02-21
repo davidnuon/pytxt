@@ -1,0 +1,2 @@
+Pytxt
+docopt==0.6.1
