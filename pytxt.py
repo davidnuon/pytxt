@@ -16,7 +16,27 @@ Options:
 """
 
 from docopt import docopt
+import functions
+
 
 if __name__ == '__main__':
     arguments = docopt(__doc__, version='Pytxt 0.0.1')
-    print(arguments)
+
+    capAll = arguments.get('capAll')
+    lowAll = arguments.get('lowAll')
+    capLetter = arguments.get('<letter>')
+    lowLetter = arguments.get('<letter>')
+    paths = arguments.get('findPaths')
+
+    if capLetter:
+        functions.capLetter(capLetter)
+    elif lowLetter:
+        functions.lowLetter(lowLetter)
+    elif capAll:
+        functions.capAll()
+    elif lowAll:
+        functions.lowAll()
+    elif paths:
+        functions.findPaths()
+    else:
+        print 'Invalid'

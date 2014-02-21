@@ -57,7 +57,7 @@ def capLetter(n):
         result = setClipboardData(result)
         return result
     else:
-        result = [x.upper().replace(n.lower(), n.upper()) for x in buffy if x != '']
+        result = [x.replace(n.lower(), n.upper()) for x in buffy if x != '']
         result = ' '.join(result)
         result = setClipboardData(result)
         return result
