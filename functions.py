@@ -1,7 +1,7 @@
 import subprocess
 
 
-#  storing stdin in the var buffy and then spliting it by spaces
+#  methods for piping from the clipboard
 
 def getClipboardData():
     p = subprocess.Popen(['pbpaste'], stdout=subprocess.PIPE)
@@ -93,4 +93,3 @@ def findPaths():
     paths = ' '.join(paths)
     paths = setClipboardData(paths)
     return paths
-findPaths()

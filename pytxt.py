@@ -1,8 +1,10 @@
 """ Pytxt.
 
 Usage:
-    pytxt.py capital (<Letter> | <position>)
-    pytxt.py lower (<Letter> | <position>)
+    pytxt.py capAll
+    pytxt.py lowAll
+    pytxt.py capLetter (<letter> | <position>)
+    pytxt.py lowLetter (<letter> | <position>)
     pytxt.py findPaths
     pytxt.py (-h | --help)
     pytxt.py --version
