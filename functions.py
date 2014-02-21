@@ -5,7 +5,6 @@ import subprocess
 
 def getClipboardData():
     p = subprocess.Popen(['pbpaste'], stdout=subprocess.PIPE)
-    retcode = p.wait()
     buffy = p.stdout.read()
     return buffy
 
@@ -14,7 +13,6 @@ def setClipboardData(data):
     p = subprocess.Popen(['pbcopy'], stdin=subprocess.PIPE)
     p.stdin.write(data)
     p.stdin.close()
-    retcode = p.wait()
 
 #  this function will capitalize everything in buffy join it together. And print
 #  it out
