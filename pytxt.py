@@ -67,4 +67,9 @@ def lowLetter(n):
 
 def findPaths():
     paths = [x for x in buffy if x[0] == '/']
+    paths = ' '.join(paths)
     print paths
+<<<<<<< HEAD
+=======
+findPaths()
+>>>>>>> c5062326407f858a8b6370a359f610309cd63240
