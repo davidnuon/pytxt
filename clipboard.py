@@ -16,13 +16,13 @@ def getClip():
         return buffy
 
 
-def setClip():
+def setClip(data):
     #  gets the operating system
     if os == 'darwin':
-        p = subprocess.Popen(['pbcopy'], stdout=subprocess.PIPE)
-        buffy = p.stdout.read()
-        return buffy
+        p = subprocess.Popen(['pbcopy'], stdin=subprocess.PIPE)
+        p.stdin.write(data)
+        p.stdin.close()
     elif os == 'linux2':
         p = subprocess.Popen(['xsel --clipboard --input'], stdin=subprocess.PIPE)
-        buffy = p.stdin.read()
-        return buffy
+        p.stdin.write(data)
+        p.stdin.close()
