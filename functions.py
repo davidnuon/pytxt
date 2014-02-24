@@ -1,19 +1,11 @@
-import subprocess
 from clipboard import setClip, getClip
 
 
-#  methods for piping from the clipboard
-
-
-#  this function will capitalize everything in buffy join it together. And print
-#  it out
-
+#  capital method does .upper() on clipboard
 
 def capAll():
     buffy = getClip()
-    buffy = buffy.split(' ')
-    result = [x.upper() for x in buffy if x != '']
-    result = ' '.join(result)
+    result = buffy.upper()
     result = setClip(result)
     return result
 
@@ -23,11 +15,9 @@ def capAll():
 
 
 def lowAll():
-    buffy = getClipboardData()
-    buffy = buffy.split(' ')
-    result = [x.lower() for x in buffy if x != '']
-    result = ' '.join(result)
-    result = setClipboardData(result)
+    buffy = getClip()
+    result = buffy.lower()
+    result = setClip(result)
     return result
 
 #  this will capitalize the specified letter (via numerical position or
@@ -36,19 +26,19 @@ def lowAll():
 
 
 def capLetter(n):
-    buffy = getClipboardData()
+    buffy = getClip()
     buffy = buffy.split(' ')
     if isinstance(n, (int, long)):
         n = n - 1
         m = n + 1
         result = [x[:n] + x[n].upper() + x[m:] for x in buffy if x != '' and len(x) > m]
         result = ' '.join(result)
-        result = setClipboardData(result)
+        result = setClip(result)
         return result
     else:
         result = [x.replace(n.lower(), n.upper()) for x in buffy if x != '']
         result = ' '.join(result)
-        result = setClipboardData(result)
+        result = setClip(result)
         return result
 
 #  this will lowercase the specified letter (via numerical position or specific
@@ -57,28 +47,28 @@ def capLetter(n):
 
 
 def lowLetter(n):
-    buffy = getClipboardData()
+    buffy = getClip()
     buffy = buffy.split(' ')
     if isinstance(n, (int, long)):
         n = n - 1
         m = n + 1
         result = [x[:n] + x[n].lower() + x[m:] for x in buffy if x != '' and len(x) > m]
         result = ' '.join(result)
-        result = setClipboardData(result)
+        result = setClip(result)
         return result
     else:
         result = [x.replace(n.upper(), n.lower()) for x in buffy if x != '']
         result = ' '.join(result)
-        result = setClipboardData(result)
+        result = setClip(result)
         return result
 
 #  could parse text and grab any file paths in the text
 
 
 def findPaths():
-    buffy = getClipboardData()
+    buffy = getClip()
     buffy = buffy.split()
     paths = [x for x in buffy if x[0] == '/']
     paths = ' '.join(paths)
-    paths = setClipboardData(paths)
+    paths = setClip(paths)
     return paths
