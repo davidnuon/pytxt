@@ -1,5 +1,4 @@
-from clipboard import setClip, getClip
-
+from contrib.clipboard import getClip, setClip
 
 if getClip() == '':
     print 'There is nothing in the clipboard!'
