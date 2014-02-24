@@ -1,6 +1,6 @@
 import subprocess
 import sys
-
+from Tkinter import Tk
 
 os = sys.platform
 
@@ -15,7 +15,9 @@ def getClip():
         buffy = p.stdout.read()
         return buffy
     elif os == 'win32':
-        pass
+        p = Tk()
+        buffy = p.selection_get(selection='CLIPBOARD')
+        return buffy
 
 
 def setClip(data):
@@ -29,4 +31,7 @@ def setClip(data):
         p.stdin.write(data)
         p.stdin.close()
     elif os == 'win32':
-        pass
+        p = Tk()
+        p.clipboard_clear()
+        p.clipboard_append(data)
+        p.destroy()
