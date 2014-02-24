@@ -1,29 +1,20 @@
 import subprocess
+from clipboard import setClip, getClip
 
 
 #  methods for piping from the clipboard
 
-def getClipboardData():
-    p = subprocess.Popen(['pbpaste'], stdout=subprocess.PIPE)
-    buffy = p.stdout.read()
-    return buffy
-
-
-def setClipboardData(data):
-    p = subprocess.Popen(['pbcopy'], stdin=subprocess.PIPE)
-    p.stdin.write(data)
-    p.stdin.close()
 
 #  this function will capitalize everything in buffy join it together. And print
 #  it out
 
 
 def capAll():
-    buffy = getClipboardData()
+    buffy = getClip()
     buffy = buffy.split(' ')
     result = [x.upper() for x in buffy if x != '']
     result = ' '.join(result)
-    result = setClipboardData(result)
+    result = setClip(result)
     return result
 
 
