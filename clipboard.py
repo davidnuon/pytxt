@@ -14,6 +14,8 @@ def getClip():
         p = subprocess.Popen(['xsel --clipboard --output'], stdout=subprocess.PIPE)
         buffy = p.stdout.read()
         return buffy
+    elif os == 'win32':
+        pass
 
 
 def setClip(data):
@@ -26,3 +28,5 @@ def setClip(data):
         p = subprocess.Popen(['xsel --clipboard --input'], stdin=subprocess.PIPE)
         p.stdin.write(data)
         p.stdin.close()
+    elif os == 'win32':
+        pass
