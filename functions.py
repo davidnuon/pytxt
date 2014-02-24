@@ -1,7 +1,13 @@
 from clipboard import setClip, getClip
 
 
+if getClip() == '':
+    print 'There is nothing in the clipboard!'
+else:
+    pass
+
 #  capital method does .upper() on clipboard
+
 
 def capAll():
     buffy = getClip()
@@ -70,5 +76,8 @@ def findPaths():
     buffy = buffy.split()
     paths = [x for x in buffy if x[0] == '/']
     paths = ' '.join(paths)
-    paths = setClip(paths)
-    return paths
+    if paths != '':
+        paths = setClip(paths)
+        return paths
+    else:
+        print 'There are no paths in this text!'
